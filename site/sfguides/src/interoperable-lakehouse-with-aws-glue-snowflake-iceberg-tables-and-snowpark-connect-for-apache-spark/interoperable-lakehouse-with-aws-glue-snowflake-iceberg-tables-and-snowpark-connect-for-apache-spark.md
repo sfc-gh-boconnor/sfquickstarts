@@ -511,7 +511,7 @@ aws glue get-tables --database-name $GLUE_DB_NAME \
 -----------------------------------------------------------
 ```
 
-###Generate Sales Report
+### Generate Sales Report
 
 In this step, we run the sales report job that performs the same analytics that we'll later replicate in Snowflake.
 
