@@ -284,7 +284,7 @@ The agent enables truly natural route planning - users simply describe locations
 
 ### Source Code
 
-- [Source Code on GitHub](https://github.com/sfc-gh-ppaczewski/sfguide-create-a-route-optimisation-and-vehicle-route-plan-simulator/tree/main/oss-deploy-snowflake-intelligence-routing-agent/)
+- [Source Code on GitHub](https://github.com/Snowflake-Labs/sfguide-create-a-route-optimisation-and-vehicle-route-plan-simulator/tree/main/oss-deploy-snowflake-intelligence-routing-agent/)
 
 ### Related Quickstarts
 
