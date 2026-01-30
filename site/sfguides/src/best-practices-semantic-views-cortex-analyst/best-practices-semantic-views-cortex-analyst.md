@@ -340,7 +340,7 @@ Well-crafted semantic views are essential for delivering accurate, explainable, 
 
 ## Resources
 
-- [Semantic View Autopilot docs](https://docs.snowflake.com/en/user-guide/views-semantic/overview)
+- [Semantic View Autopilot docs overview](https://docs.snowflake.com/en/user-guide/views-semantic/overview)
 - [Semantic model generator (evaluation tool)](https://github.com/Snowflake-Labs/semantic-model-generator/) 
 - [SQL-focused semantic view guide](https://www.snowflake.com/en/developers/guides/snowflake-semantic-view/)
 
