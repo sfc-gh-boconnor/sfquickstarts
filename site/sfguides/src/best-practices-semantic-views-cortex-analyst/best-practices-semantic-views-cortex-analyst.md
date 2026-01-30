@@ -333,3 +333,14 @@ Solution: begin with lower-stakes domains like Sales/Marketing
 
 ✅ Weekly review of suggestions and feedback data\
 ✅ Process for adding new verified queries and related suggestions is in place
+
+## Conclusion and resources
+
+Well-crafted semantic views are essential for delivering accurate, explainable, and maintainable results in Cortex Analyst. Prioritize clear, business-focused descriptions, a set of verified queries, and iterative testing to move from prototype to production with confidence.
+
+## Resources
+
+- [Semantic View Autopilot docs](https://docs.snowflake.com/en/user-guide/views-semantic/overview)
+- [Semantic model generator (evaluation tool)](https://github.com/Snowflake-Labs/semantic-model-generator/) 
+- [SQL-focused semantic view guide](https://www.snowflake.com/en/developers/guides/snowflake-semantic-view/)
+
