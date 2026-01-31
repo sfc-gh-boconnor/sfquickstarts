@@ -214,7 +214,7 @@ Let's add the tools and orchestration to the agent
 - Enter the name `SALES_CONVERSATION_SEARCH` and enter the description "the search service is for providing information on sales call transcripts".
 - Select `CONVERSATION_ID` as the ID column and `CUSTOMER_NAME` as the Title Column.
 - Select **Add**.
-![](assets/searchtoolui.png)
+![](assets/searchtoolui2.png)
 
 - Select **Orchestration** and leave the model set to **auto**.
 - Add the following orchestration instructions, "use the analyst tool for sales metric and the search tool for call details".
