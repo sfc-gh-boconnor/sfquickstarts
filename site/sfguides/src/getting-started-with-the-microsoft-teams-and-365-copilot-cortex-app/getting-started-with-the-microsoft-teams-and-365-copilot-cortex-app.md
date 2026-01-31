@@ -312,6 +312,8 @@ And you are now ready to go! You can continue asking questions like:
 - What was the worst customer call we had?
 - Show the deals that are currently pending
 
+![](assets/agent.gif)
+
 The Snowflake Cortex Teams and M365 App now supports the below functionality. Users are encouraged to expand on this use case to explore its complete functionality
 
 - Multi-Agent Support: Users can now use and switch between multiple agents across multiple Snowflake accounts.
