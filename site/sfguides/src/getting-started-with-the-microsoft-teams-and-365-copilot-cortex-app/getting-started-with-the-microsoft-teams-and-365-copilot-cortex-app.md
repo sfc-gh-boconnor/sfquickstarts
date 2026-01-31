@@ -1,4 +1,4 @@
-author: Matt Marzillo
+author: Matt Marzillo, Mary Law
 id: getting-started-with-the-microsoft-teams-and-365-copilot-cortex-app
 categories: snowflake-site:taxonomy/solution-center/certification/quickstart, snowflake-site:taxonomy/product/ai, snowflake-site:taxonomy/product/applications-and-collaboration
 language: en
@@ -158,6 +158,7 @@ CREATE OR REPLACE CORTEX SEARCH SERVICE sales_conversation_search
   TARGET_LAG = '1 hour'
   AS (
     SELECT
+        conversation_id,
         transcript_text,
         customer_name,
         deal_stage,
@@ -170,19 +171,28 @@ CREATE OR REPLACE CORTEX SEARCH SERVICE sales_conversation_search
 CREATE OR REPLACE STAGE models DIRECTORY = (ENABLE = TRUE);
 ```
 
-Now we will have to set up a semantic model for Cortex Analyst.
+Now we will have to set up a semantic view for Cortex Analyst.
+<br>
+
+[Semantic view](https://docs.snowflake.com/en/user-guide/views-semantic/overview) is a new Snowflake schema-level object. You can define business metrics and model business entities and their relationships. By adding business meaning to physical data, the semantic view enhances data-driven decisions and provides consistent business definitions across enterprise applications. 
 
 
 Setting up Cortex Analyst
-- Go to **AI * ML** on the side and select **Cortex Analyst**.
+- Go to **AI & ML** on the side and select **Cortex Analyst**.
 - Select the `SALES_INTELLIGENCE.DATA` Database and Schema.
 - Select **Create New** and select **Create new Semantic View**.
  ![](assets/analystui.png)
 
- Select the `MODELS` Stage and name the Analyst Service `SALES_METRICS_MODEL` and select **Next**.
- - Select the `SALES_INTELLIGENCE` database and the `SALES_METRICS` table then select **Next**.
- - Select all of the columns and select **Create and Save**.
-
+ Name the Analyst Service `SALES_METRICS_MODEL` and select **Next**.
+ - We will skip the `Provide context (optional)` so click **Next**
+ - Select the `SALES_INTELLIGENCE` database, `DATA` schema, `SALES_METRICS` table then select **Next**.
+ - Select all of the columns
+ - Check  
+ ☑️ Add sample values to the semantic view  
+ ☑️ Add descriptions to the semantic view
+ -  Select **Create and Save**.
+  ![](assets/createsv.png)
+ 
  This is a VERY simple Analyst service. You can click through the dimensions and see that Cortex used LLMS to write descriptions and synonyms for each of the dimensions. We're going to leave this as-is, but know that you can adjust this as needed to enhance the performance of Cortex Analyst.
  ![](assets/builtanalyst.png)
 
@@ -195,7 +205,7 @@ Setting up Cortex Agent
 
 Let's add the tools and orchestration to the agent
 - Select **Tools** and **Add** by Cortex Analyst.
-- Select the `SALES_INTELLIGENCE.DATA` Database and Schema and Select the `SALES_METRICS_MODEL` and generate a Description with Cortex AI.
+- Select the `SALES_INTELLIGENCE.DATA` Database and Schema and Select the `SALES_METRICS_MODEL` created earlier and generate a Description with Cortex AI.
 - Select **Add**
 ![](assets/analysttoolui.png)
 
@@ -210,6 +220,11 @@ Let's add the tools and orchestration to the agent
 - Add the following orchestration instructions, "use the analyst tool for sales metric and the search tool for call details".
 - Add the following response instructions, "make the response concise and direct so that a strategic sales person can quickly understand the information provided".
 - Select **Save**.
+
+> 🧪 Feel free to test the agent created with the following questions:-
+> - what is the largest deal size? 
+> - what is the meeting with TechCorp Inc about and any action item?
+![](assets/testagent.png)
 
 And last we will run this below script to grant the appropriate privileges to the `PUBLIC` role (or whatever role you can use). 
 
@@ -230,7 +245,7 @@ A Global Administrator for your Microsoft Entra ID tenant must use the two links
 Replace <TENANT-ID> with your organization’s tenant identifier:
 
 ```
-https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=5a840489-78db-4a42-8772-47be9d833efe
+https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=5a840489-1234-abcd-6767-47be9d833efe
 ```
 
 ![](assets/consentone.png)
@@ -238,7 +253,7 @@ https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=5a840489-78
 Replace <TENANT-ID> with your organization’s tenant identifier:
 
 ```
-https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=bfdfa2a2-bce5-4aee-ad3d-41ef70eb5086
+https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=bfdfa2a2-1234-abcd-ad3d-41ef70eb5086
 ```
 
 ![](assets/consenttwo.png)
@@ -254,7 +269,7 @@ ENABLED = TRUE
 EXTERNAL_OAUTH_TYPE = AZURE 
 EXTERNAL_OAUTH_ISSUER = 'https://login.microsoftonline.com/<TENANT-ID>/v2.0'
 EXTERNAL_OAUTH_JWS_KEYS_URL = 'https://login.microsoftonline.com/<TENANT-ID>/discovery/v2.0/keys'
-EXTERNAL_OAUTH_AUDIENCE_LIST = ('5a840489-78db-4a42-8772-47be9d833efe') EXTERNAL_OAUTH_TOKEN_USER_MAPPING_CLAIM = ('email', 'upn')
+EXTERNAL_OAUTH_AUDIENCE_LIST = ('5a840489-1234-abcd-6767-47be9d833efe') EXTERNAL_OAUTH_TOKEN_USER_MAPPING_CLAIM = ('email', 'upn')
 EXTERNAL_OAUTH_SNOWFLAKE_USER_MAPPING_ATTRIBUTE = 'email_address' 
 EXTERNAL_OAUTH_ANY_ROLE_MODE = 'ENABLE'
 ```
