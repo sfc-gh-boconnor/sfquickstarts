@@ -224,7 +224,7 @@ Let's add the tools and orchestration to the agent
 > 🧪 Feel free to test the agent created with the following questions:-
 > - what is the largest deal size? 
 > - what is the meeting with TechCorp Inc about and any action item?
-![](assets/testagent.png)
+![](assets/testcortexagent.png)
 
 And last we will run this below script to grant the appropriate privileges to the `PUBLIC` role (or whatever role you can use). 
 
