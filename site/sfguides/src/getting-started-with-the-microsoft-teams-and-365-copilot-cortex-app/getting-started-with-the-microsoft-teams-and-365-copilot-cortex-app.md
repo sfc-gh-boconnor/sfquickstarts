@@ -245,15 +245,16 @@ A Global Administrator for your Microsoft Entra ID tenant must use the two links
 Replace <TENANT-ID> with your organization’s tenant identifier:
 
 ```
-https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=5a840489-1234-abcd-6767-47be9d833efe
+https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=5a840489-78db-4a42-8772-47be9d833efe
 ```
+> Note that `client_id=5a840489-78db-4a42-8772-47be9d833efe` ia also known as the application ID of the application. You can build the same URL to grant tenant-wide admin consent. This is the Snowflake Microsofts application ID. Refer to [Microsoft doc](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#construct-the-url-for-g[…]nant-wide-admin-consent)
 
 ![](assets/consentone.png)
 
 Replace <TENANT-ID> with your organization’s tenant identifier:
 
 ```
-https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=bfdfa2a2-1234-abcd-ad3d-41ef70eb5086
+https://login.microsoftonline.com/<TENANT-ID>/adminconsent?client_id=bfdfa2a2-bce5-4aee-ad3d-41ef70eb5086
 ```
 
 ![](assets/consenttwo.png)
@@ -269,7 +270,7 @@ ENABLED = TRUE
 EXTERNAL_OAUTH_TYPE = AZURE 
 EXTERNAL_OAUTH_ISSUER = 'https://login.microsoftonline.com/<TENANT-ID>/v2.0'
 EXTERNAL_OAUTH_JWS_KEYS_URL = 'https://login.microsoftonline.com/<TENANT-ID>/discovery/v2.0/keys'
-EXTERNAL_OAUTH_AUDIENCE_LIST = ('5a840489-1234-abcd-6767-47be9d833efe') EXTERNAL_OAUTH_TOKEN_USER_MAPPING_CLAIM = ('email', 'upn')
+EXTERNAL_OAUTH_AUDIENCE_LIST = ('5a840489-78db-4a42-8772-47be9d833efe') EXTERNAL_OAUTH_TOKEN_USER_MAPPING_CLAIM = ('email', 'upn')
 EXTERNAL_OAUTH_SNOWFLAKE_USER_MAPPING_ATTRIBUTE = 'email_address' 
 EXTERNAL_OAUTH_ANY_ROLE_MODE = 'ENABLE'
 ```
