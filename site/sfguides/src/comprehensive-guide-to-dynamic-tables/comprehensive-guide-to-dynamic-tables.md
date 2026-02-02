@@ -1,6 +1,6 @@
 author: Gilberto Hernandez
 id: comprehensive-guide-to-dynamic-tables
-categories: snowflake-site:taxonomy/solution-center/certification/quickstart, snowflake-site:taxonomy/product/data-engineering, snowflake-site:taxonomy/snowflake-feature/snowpark
+categories: snowflake-site:taxonomy/solution-center/certification/quickstart, snowflake-site:taxonomy/product/data-engineering, snowflake-site:taxonomy/snowflake-feature/dynamic-tables
 language: en
 summary: Learn how to build automated data pipelines on Snowflake using Dynamic Tables. 
 open in snowflake link: https://app.snowflake.com/templates/?template=getting_started_with_dynamic_tables&utm_source=snowflake-devrel&utm_medium=developer-guides&utm_content=getting_started_with_dynamic_tables&utm_cta=developer-guides-deeplink
