@@ -324,10 +324,10 @@ SELECT 'Lab setup complete. You can now run sections 1-6.' as status;
 ````
 <!-- ------------------------ -->
 
-## Horizon as a Data Engineer - Data Quality Monitoring
+## Data Quality Monitoring
 
 
-### Overview
+### Overview: Horizon as a Data Engineer 
 Data Governance doesn't need to be a daunting undertaking. This section is all about how to get started with curating assets to understand common problems that most data organizations want to solve such as data quality monitoring. We will show you how easily all roles benefit from Horizon and Snowflake's RBAC Framework. 
 
 Before we begin, the Snowflake Access Control Framework is based on:
@@ -585,10 +585,10 @@ ORDER BY change_commit_time DESC;
 
 
 
-## Horizon as Data Governor - Know & protect your data
+## Know & protect your data
 
 
-### Overview
+### Overview: Horizon as Data Governor
 
 In today's world of data management, it is common to have policies and procedures that range from data quality and retention to personal data protection. A Data Governor within an organization defines and applies data policies. Here we will explore Horizon features such as **universal search** that makes it easier to find Account objects,Snowflake Marketplace listings, relevant Snowflake Documentation and Snowflake Community Knowledge Base articles.
 
@@ -1323,10 +1323,10 @@ ALTER TABLE HRZN_DB.HRZN_SCH.CUSTOMER MODIFY COLUMN ZIP SET TAG HRZN_DB.TAG_SCHE
 Now that we've protected our data with AI-powered classification and our users can access it appropriately, let's move on to explore the Governor Admin role.
 
 
-## Governor Admin - Access & Audit
+## Access & Audit
 
 
-### Overview
+### Overview: Governor Admin 
 
 Access History provides insights into user queries encompassing what data was 
 read and when, as well as what statements have performed a write operations. Access History is particularly important for Compliance, Auditing, and Governance.
@@ -1538,9 +1538,9 @@ Base Objects Accessed: Base data objects required to execute a query.
  > Clean up (Optional).
  >Create a new worksheet named 99_lab_teardown. Copy and paste the entire Teardown Script at [ 99-lab-teardown.sql](https://github.com/Snowflake-Labs/sfguide-getting-started-with-horizon-data-governance-in-snowflake/blob/main/99-lab-teardown.sql) 
 <!-- ------------------------ -->
-## Data Governor - Semantic Views for AI Analytics
+## Semantic Views for AI Analytics
 
-### Overview
+### Overview: Data Governor 
 
 Semantic views are database objects that enable natural language querying via Cortex Analyst while automatically enforcing existing governance policies. In this section, you'll create a semantic view with dimensions, metrics, and facts that inherits all masking and row access policies from underlying tables.
 
@@ -1653,9 +1653,9 @@ To use in Snowsight Cortex Analyst:
 - Lineage tracked in OBJECT_DEPENDENCIES
 
 <!-- ------------------------ -->
-## Data Governor - AI-Powered Governance Automation
+## AI-Powered Governance Automation
 
-### Overview
+### Overview: Data Governor 
 
 In Section 2, you used AI-powered classification with CLASSIFICATION_PROFILE and custom tag mapping to automatically classify and protect structured data. Now we'll extend governance to unstructured data using AI_REDACT to remove PII from free-form text like customer feedback.
 
@@ -1895,7 +1895,7 @@ Use Cortex Code to query governance metadata:
 >
 >Note: Cortex Code understands your database schema and writes SQL to answer your questions!
 
-### View Classification Tags in Snowsight UI
+### Classification Tags in Snowsight
 
 > 
 >Switch to the Snowsight UI to see the classification results:
@@ -1922,10 +1922,10 @@ Use Cortex Code to query governance metadata:
 - Performance: AI_REDACT is expensive - use pre-computed tables and batch jobs
 
 <!-- ------------------------ -->
-## Data Governor - Natural Language Governance Queries
+## Natural Language Governance Queries
 
 
-### Overview
+### Overview: Data Governor 
 
 Query governance metadata using natural language with Cortex Analyst or manual SQL. This section demonstrates governance reporting and compliance queries.
 
