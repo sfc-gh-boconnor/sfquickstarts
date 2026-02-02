@@ -1,5 +1,5 @@
 author: Neelima Parakala
-id: build-data-pipelines-for-ai-agents
+id: from-zero-to-agents
 categories: snowflake-site:taxonomy/solution-center/certification/quickstart, snowflake-site:taxonomy/product/ai, snowflake-site:taxonomy/product/data-engineering, snowflake-site:taxonomy/feature/cortex-ai, snowflake-site:taxonomy/feature/dynamic-tables
 language: en
 summary: Build governed AI agents in Snowflake by transforming raw data into actionable insights using Cortex AI for sentiment analysis and Dynamic Tables for automated enrichment.
