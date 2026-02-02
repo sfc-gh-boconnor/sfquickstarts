@@ -6,6 +6,7 @@ summary: This guide demonstrates Snowflake Horizon's capabilities for modern dat
 environments: web
 status: Published 
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues
+fork repo link: https://github.com/Snowflake-Labs/sfguide-getting-started-with-horizon-data-governance-in-snowflake
 
 
 # Getting Started with Horizon for Data Governance in Snowflake
