@@ -12,6 +12,8 @@ feedback link: https://github.com/Snowflake-Labs/sfguides/issues
 
 Snowflake Dynamic Tables provide a **declarative way to build data pipelines** that automatically refresh based on changes to upstream data. They simplify data transformation workflows by eliminating the need to manually manage refresh schedules and dependencies.
 
+## Overview
+
 **In this guide, you will learn:**
 - How Dynamic Tables automatically maintain fresh data with TARGET_LAG
 - How to leverage incremental refresh for efficient pipeline processing
@@ -24,7 +26,7 @@ Snowflake Dynamic Tables provide a **declarative way to build data pipelines** t
 
 ---
 
-## Section 1: Load Data from Cloud Storage
+## Load Sample Data
 
 In this section, we load data from CSV files in S3 into Snowflake tables.
 
@@ -77,7 +79,7 @@ SELECT * FROM menu_raw LIMIT 10;
 
 ---
 
-## Section 2: Create Dynamic Tables
+## Create Dynamic Tables
 
 A Dynamic Table is a declarative way to define a data pipeline in Snowflake. Unlike traditional tables or views, dynamic tables automatically refresh based on the TARGET_LAG you specify, ensuring data freshness without manual intervention.
 
@@ -145,7 +147,7 @@ LIMIT 10;
 
 ---
 
-## Section 3: Incremental Refresh
+## Incremental Refresh
 
 Incremental refresh is when a dynamic table processes only the rows that changed in the source table since the last refresh, rather than recomputing the entire table from scratch.
 
@@ -268,7 +270,7 @@ LIMIT 10;
 
 ---
 
-## Section 4: Converting a Materialized View to a Dynamic Table
+## Materialized View Migration
 
 A Materialized View stores the results of a query physically, similar to a table. Unlike regular views (which execute the query each time), materialized views pre-compute and store the results for faster query performance.
 
@@ -362,7 +364,7 @@ LIMIT 10;
 
 ---
 
-## Section 5: Change Data Capture (CDC) Comparison
+## CDC Comparison
 
 This section demonstrates two approaches to propagating changes from a source table:
 
@@ -524,7 +526,7 @@ ALTER TASK update_menu_profitability SUSPEND;
 
 ---
 
-## Section 6: Cleanup
+## Cleanup
 
 Running the commands below will clean up your environment and drop the objects created in this guide.
 
@@ -552,7 +554,7 @@ DROP FILE FORMAT IF EXISTS csv_ff;
 
 ---
 
-## Summary
+## Conclusion and Resources
 
 In this guide, you learned how to:
 
@@ -563,3 +565,8 @@ In this guide, you learned how to:
 5. **Monitor refresh operations** using INFORMATION_SCHEMA
 
 Dynamic Tables provide a declarative, low-maintenance approach to building data pipelines in Snowflake. For most CDC and transformation use cases, they offer a simpler alternative to the traditional Streams + Tasks pattern.
+
+### Additional Resources
+
+- [Dynamic Tables Documentation](https://docs.snowflake.com/en/user-guide/dynamic-tables-about)
+- [Getting Started with Dynamic Tables](https://www.snowflake.com/en/developers/guides/getting-started-with-dynamic-tables/)
