@@ -78,7 +78,6 @@ Now that you have the introduction to Horizon and our personas, let's get starte
 <!-- ------------------------ -->
 ## Setup
 
-Duration: 10
 
 All the scripts for this lab are available at [Snowflake Labs](https://github.com/Snowflake-Labs/sfguide-getting-started-with-horizon-data-governance-in-snowflake) for you as a resource.
 
@@ -326,7 +325,6 @@ SELECT 'Lab setup complete. You can now run sections 1-6.' as status;
 
 ## Horizon as a Data Engineer - Data Quality Monitoring
 
-Duration: 20
 
 ### Overview
 Data Governance doesn't need to be a daunting undertaking. This section is all about how to get started with curating assets to understand common problems that most data organizations want to solve such as data quality monitoring. We will show you how easily all roles benefit from Horizon and Snowflake's RBAC Framework. 
@@ -588,7 +586,6 @@ ORDER BY change_commit_time DESC;
 
 ## Horizon as Data Governor - Know & protect your data
 
-Duration: 25
 
 ### Overview
 
@@ -1327,7 +1324,6 @@ Now that we've protected our data with AI-powered classification and our users c
 
 ## Governor Admin - Access & Audit
 
-Duration: 15
 
 ### Overview
 
@@ -1543,8 +1539,6 @@ Base Objects Accessed: Base data objects required to execute a query.
 <!-- ------------------------ -->
 ## Data Governor - Semantic Views for AI Analytics
 
-Duration: 15
-
 ### Overview
 
 Semantic views are database objects that enable natural language querying via Cortex Analyst while automatically enforcing existing governance policies. In this section, you'll create a semantic view with dimensions, metrics, and facts that inherits all masking and row access policies from underlying tables.
@@ -1659,8 +1653,6 @@ To use in Snowsight Cortex Analyst:
 
 <!-- ------------------------ -->
 ## Data Governor - AI-Powered Governance Automation
-
-Duration: 20
 
 ### Overview
 
@@ -1931,7 +1923,6 @@ Use Cortex Code to query governance metadata:
 <!-- ------------------------ -->
 ## Data Governor - Natural Language Governance Queries
 
-Duration: 10
 
 ### Overview
 
