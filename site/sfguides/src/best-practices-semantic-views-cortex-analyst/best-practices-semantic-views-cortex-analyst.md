@@ -286,7 +286,7 @@ Available tools:
 - Use suggestions panels and feedback loops to add verified queries from real usage data
 - As you collect more verified queries, you can improve metrics, filters, custom instructions, and descriptions to align more closely with real user behavior
 
-## Common Pitfalls and How to Avoid Them
+## Common Pitfalls to Avoid
 
 ### Undefined scope
 
@@ -334,7 +334,7 @@ Solution: begin with lower-stakes domains like Sales/Marketing
 ✅ Weekly review of suggestions and feedback data\
 ✅ Process for adding new verified queries and related suggestions is in place
 
-## Conclusion and resources
+## Conclusion and Resources
 
 Well-crafted semantic views are essential for delivering accurate, explainable, and maintainable results in Cortex Analyst. Prioritize clear, business-focused descriptions, a set of verified queries, and iterative testing to move from prototype to production with confidence.
 
