@@ -9,7 +9,9 @@ feedback link: https://github.com/Snowflake-Labs/sfguides/issues
 
 
 # Getting Started with The Microsoft Teams and M365 Copilot Cortex App
-<!-- ------------------------ -->
+
+
+
 ## Overview 
 
 The Microsoft M365 Copilot and Snowflake Cortex Agents integration simplifies AI-powered data interactions so that both technical and business users can interact with their structured and unstructured data using natural language. Direct access to Cortex Agents from Microsoft M365 Copilot makes it possible to combine powerful generative AI data agents with secure data in Snowflake, unlocking endless business efficiencies for every organization, from faster customer support to optimized supply chain operations.
