@@ -8,7 +8,7 @@ environments: web
 status: Published
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues
 
-# Getting Started with Snowflake Dynamic Tables
+# Comprehensive Guide to Snowflake Dynamic Tables
 
 Snowflake Dynamic Tables provide a **declarative way to build data pipelines** that automatically refresh based on changes to upstream data. They simplify data transformation workflows by eliminating the need to manually manage refresh schedules and dependencies.
 
