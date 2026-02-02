@@ -1,13 +1,12 @@
 author: Umesh Unnikrishnan, Shayak Sen 
-id: getting-started-cortex-code-cli 
+id: best-practices-cortex-code-cli 
 language: en 
-summary: Your guide to get started using Cortex Code CLI, an AI-powered command-line interface assistant for building, debugging, and deploying Snowflake applications.
-categories: snowflake-site:taxonomy/solution-center/ai-ml/quickstart, snowflake-site:taxonomy/product/ai, snowflake-site:taxonomy/snowflake-feature/cortex-llm-functions 
+summary: Learn best practices for using Cortex Code CLI, your AI-powered command-line coding agent for building, debugging, and deploying Snowflake applications. 
+categories: snowflake-site:taxonomy/solution-center/ai-ml/quickstart
 environments: web 
 status: Published 
 
-
-# Overview
+# Best practices for Cortex Code CLI
 
 This is your guide to Snowflake's **Cortex Code CLI**, an AI-powered command-line coding agent designed to streamline the process of building, debugging, and deploying Snowflake applications through natural language conversations.  
 
