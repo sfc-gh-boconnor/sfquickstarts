@@ -18,7 +18,8 @@ This guide walks through best practices for designing and building semantic view
 Autopilot is the fastest way to create high-quality semantic views, whether you’re new to the specification or refining a production model. Powered by AI and LLMs, it simplifies setup by auto-generating descriptions, offering smart modeling suggestions, and letting you start from existing dashboards or SQL—so your views are organized, explainable, and optimized for performance and accuracy.
 
 <img src="assets/semantic-view-autopilot.png">
-You can [access Autopilot](https://app.snowflake.com/_deeplink/#/cortex/analyst?utm_source=snowflake-devrel&utm_medium=developer-guides&utm_cta=developer-guides-deeplink) in Snowsight by going to AI/ML > Analyst > Create New
+
+> You can [access Autopilot](https://app.snowflake.com/_deeplink/#/cortex/analyst?utm_source=snowflake-devrel&utm_medium=developer-guides&utm_cta=developer-guides-deeplink) in Snowsight by going to AI/ML > Analyst > Create New
 
 **When to use the SQL API**
 
