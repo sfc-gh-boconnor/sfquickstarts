@@ -6,7 +6,7 @@ environments: web
 status: Published
 author: Tripp Smith, Charlie Hammond
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues
-fork repo link: https://github.com/Snowflake-Labs/-getting-started-with-predictive-maintenance/tree/main
+fork repo link: https://github.com/Snowflake-Labs/sfguide-getting-started-with-predictive-maintenance
 
 # AI-Powered Predictive Maintenance on Snowflake
 
