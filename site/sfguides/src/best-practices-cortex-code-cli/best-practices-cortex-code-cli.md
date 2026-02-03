@@ -10,7 +10,7 @@ status: Published
 
 This is your guide to Snowflake's [**Cortex Code CLI**](http://docs.snowflake.com/user-guide/cortex-code/cortex-code-cli), an AI-powered command-line coding agent designed to streamline the process of building, debugging, and deploying Snowflake applications through natural language conversations.  
 
-<img src="cortex-code-cli.png">
+<img src="assets/cortex-code-cli.png">
 
 ## Installation instructions
 
@@ -112,19 +112,29 @@ Some examples below
 **Fraud analysis for a fintech company**
 
 ``` 
-Generate realistic looking synthetic data into <database name>. Create a table of 10000 financial transactions where ~0.5% of them are fraudulent. Include Amount, Location, Merchant, and Time. Make the fraudulent ones look suspicious based on location or amount.
+Generate realistic looking synthetic data into <database name>. Create a table of
+10000 financial transactions where ~0.5% of them are fraudulent. Include Amount,
+Location, Merchant, and Time. Make the fraudulent ones look suspicious based on
+location or amount.
 ```
 
 **Pharma trial data**
 
 ``` 
-Make a dummy dataset for a clinical trial of a new blood pressure medication. List 100 patients, their age, their dosage group (Placebo vs. 10mg), and their blood pressure readings over 4 weeks.
+Make a dummy dataset for a clinical trial of a new blood pressure medication. List
+100 patients, their age, their dosage group (Placebo vs. 10mg), and their blood
+pressure readings over 4 weeks.
 ```
 
 **Customer churn data**
 
 ```
-Create a customer churn dataset for a telecom company showing customer usage for 100000 customers. Include basic demographic data such as fake names, phone numbers, US city and state. Also include data usage (GB), call minutes, contract length, and whether they cancelled their service (churn). Ensure there's a customer_id column that's unique. Create the data locally and then upload it to Snowflake.
+Create a customer churn dataset for a telecom company showing customer usage 
+for 100000 customers. 
+Include basic demographic data such as fake names, phone numbers, US city and
+state. Also include data usage (GB), call minutes, contract length, and whether
+they cancelled their service (churn). Ensure there's a customer_id column that's
+unique. Create the data locally and then upload it to Snowflake.
 ```
 
 ### Perform basic queries against this data
@@ -132,9 +142,10 @@ Create a customer churn dataset for a telecom company showing customer usage for
 Basic example
 
 ```
-Calculate the Churn Rate grouped by state and contract length. Order the results by the highest churn rate first so I can see the most risky regions and contract types.
+Calculate the Churn Rate grouped by state and contract length. 
+Order the results by the highest churn rate first so I can see 
+the most risky regions and contract types.
 ```
-
 ```
 I want to identify the heaviest data users who are also churning.
 ```
@@ -167,20 +178,24 @@ In this process, we'll augment the existing synthetic data with some synthetic d
 
 Now let's create a semantic view so that you can use Cortex Analyst with this data. Try the prompt below and use the defaults for all the questions it asks. 
 
-```Write a Semantic View named DEMO_TELECOM_CHURN_ANALYTICS for Cortex Analyst based on this data.  Use the semantic-view optimization skill```
+```
+Write a Semantic View named DEMO_TELECOM_CHURN_ANALYTICS for Cortex Analyst based on this data.  Use the semantic-view optimization skill
+```
 
 ### Create a Cortex Search service
 
 First we generate some synthetic data containing customer service calls 
 
-```generate a new table called customer_call_logs. Generate 50 realistic customer service transcripts (2-3 sentences each) as pdf files. Some should be angry complaints about coverage, others should be questions about billing. 
+```
+Generate a new table called customer_call_logs. Generate 50 realistic customer service transcripts (2-3 sentences each) as pdf files. Some should be angry complaints about coverage, others should be questions about billing. 
 
 Then use the AI_PARSE_DOCUMENT function to extract the text and layout information from the PDFs into the TRANSCRIPT_TEXT column. Split text into chunks for better search quality. 
 ``` 
 
 Then let's create a cortex search service that indexes it
 
-```Create a Cortex Search Service named CALL_LOGS_SEARCH that indexes these transcripts. It should index the TRANSCRIPT_TEXT column and filter by CUSTOMER_ID.```
+```
+Create a Cortex Search Service named CALL_LOGS_SEARCH that indexes these transcripts. It should index the TRANSCRIPT_TEXT column and filter by CUSTOMER_ID.```
 
 ### Create a Cortex Agent
 
