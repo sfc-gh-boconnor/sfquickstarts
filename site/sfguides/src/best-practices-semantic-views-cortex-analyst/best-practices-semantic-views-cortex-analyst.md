@@ -19,6 +19,8 @@ Autopilot is the fastest way to create high-quality semantic views, whether youâ
 
 <img src="assets/semantic-view-autopilot.png">
 
+> You can [access Autopilot](https://app.snowflake.com/_deeplink/#/cortex/analyst?utm_source=snowflake-devrel&utm_medium=developer-guides&utm_cta=developer-guides-deeplink) in Snowsight by going to AI/ML > Analyst > Create New
+
 **When to use the SQL API**
 
 If you prefer to build semantic views programmatically using SQL (for example, for CI/CD pipelines), use the [SQL-focused semantic view guide](https://www.snowflake.com/en/developers/guides/snowflake-semantic-view/) instead. 
