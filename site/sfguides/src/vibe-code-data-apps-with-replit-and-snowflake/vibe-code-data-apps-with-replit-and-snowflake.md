@@ -1,4 +1,4 @@
-author: Vino Duraisamy
+author: Vino Duraisamy, Manny Bernabe
 id: vibe-code-data-apps-with-replit-and-snowflake
 categories: snowflake-site:taxonomy/solution-center/certification/quickstart
 language: en
@@ -7,7 +7,7 @@ environments: web
 status: Published
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues
 
-# Build Data Apps with Replit and Snowflake
+# Vibe Code Data Apps with Replit and Snowflake
 
 <!-- ------------------------ -->
 ## Overview
