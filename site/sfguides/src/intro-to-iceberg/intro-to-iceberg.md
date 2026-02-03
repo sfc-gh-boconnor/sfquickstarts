@@ -1,28 +1,41 @@
 author: Gilberto Hernandez, Jacob Prall
 id: intro-to-iceberg
-categories: snowflake-site:taxonomy/solution-center/certification/quickstart, snowflake-site:taxonomy/product/data-engineering, snowflake-site:taxonomy/snowflake-feature/iceberg
 language: en
-summary: Learn how to query Iceberg tables in Snowpark
-open in snowflake link: https://app.snowflake.com/templates/?template=intro_to_iceberg&utm_source=snowflake-devrel&utm_medium=developer-guides&utm_content=intro_to_iceberg&utm_cta=developer-guides-deeplink
+summary: Learn how to create and query Iceberg tables in Snowflake using Snowpark Connect
+categories: snowflake-site:taxonomy/solution-center/certification/quickstart, snowflake-site:taxonomy/product/data-engineering, snowflake-site:taxonomy/snowflake-feature/iceberg
 environments: web
 status: Published
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues
-
+open in snowflake link: https://app.snowflake.com/templates/?template=intro_to_iceberg&utm_source=snowflake-devrel&utm_medium=developer-guides&utm_content=intro_to_iceberg&utm_cta=developer-guides-deeplink
 
 # Introduction to Apache Iceberg™
 
-Welcome to this quickstart template for Apache Iceberg in Snowflake. In this guide, we'll cover:
-* Setting up your Snowpark environment for Iceberg table operations
-* Reading and writing to Snowflake-managed Iceberg tables
+<!-- ------------------------ -->
+## Overview
 
-We'll also take a look at powerful Iceberg features, including:
-* Iceberg's time travel capabilities
-* Versioning and snapshot management
-* Schema evolution
+Welcome to this quickstart for Apache Iceberg in Snowflake. This guide walks you through setting up your environment, creating Iceberg tables, and exploring powerful Iceberg features like time travel and schema evolution.
 
----
+### Prerequisites
+- A Snowflake account with ACCOUNTADMIN privileges (for external volume creation)
+- Basic familiarity with Python and SQL
+- Access to cloud storage (S3, GCS, or Azure Blob)
 
-## Section 1: Snowpark setup
+### What You'll Learn
+- How to set up Snowpark Connect for Iceberg table operations
+- How to create and configure external volumes for Iceberg storage
+- How to read and write to Snowflake-managed Iceberg tables
+- How to use Iceberg's time travel and snapshot capabilities
+- How to perform schema evolution without downtime
+
+### What You'll Need
+- A [Snowflake Account](https://signup.snowflake.com/)
+- Cloud storage bucket (S3, GCS, or Azure) with appropriate IAM permissions
+
+### What You'll Build
+- A menu analytics pipeline using Iceberg tables that demonstrates data ingestion, transformation, and Iceberg-specific features
+
+<!-- ------------------------ -->
+## Snowpark Setup
 
 Using the **Packages** drop-down at the top of this notebook environment, search for and select **snowpark-connect**. This will install the **snowpark-connect** library in your environment.
 
@@ -59,13 +72,15 @@ session.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_name}").collect()
 session.sql(f"USE SCHEMA {schema_name}").collect()
 ```
 
----
+<!-- ------------------------ -->
+## Create External Volume
 
-## Section 2: Creating an external volume
+An external volume defines the cloud storage location where Iceberg table data and metadata are stored. This is required for Snowflake-managed Iceberg tables.
+
+> **Note:** ACCOUNTADMIN privileges are required to create external volumes. In production, consider creating volumes in a separate setup process.
 
 ```python
 # ACCOUNTADMIN privileges required to create external volume
-# Consider creating the volume in a separate process, but demonstrated here for completion
 session.sql(f"USE ROLE accountadmin").collect()
 
 # Follow these instructions to create an external volume if using S3:
@@ -85,11 +100,12 @@ session.sql(f"""
 """).collect()
 ```
 
----
+<!-- ------------------------ -->
+## Load Data
 
-## Section 3: Loading data and basic transformations
+In this section, we create Iceberg tables and load data from CSV files stored in S3.
 
-In this demo, we will leverage an existing data source - CSVs stored in S3.
+### Create Stage and Tables
 
 ```python
 # =============================================================================
@@ -141,8 +157,11 @@ session.sql(f"""
     CATALOG = 'SNOWFLAKE'
     BASE_LOCATION = 'menu_brand_summary/'
 """).collect()
+```
 
+### Load CSV Data
 
+```python
 """Load CSV data using COPY INTO."""
 result = session.sql(f"""
     COPY INTO menu_raw
@@ -164,7 +183,12 @@ df_raw = spark.read.table("menu_raw")
 print(f"DataFrame created with {len(df_raw.columns)} columns")
 ```
 
-### Transformations
+<!-- ------------------------ -->
+## Transformations
+
+Apply business logic transformations to calculate profitability metrics and aggregate by brand.
+
+### Data Cleaning
 
 ```python
 # =============================================================================
@@ -177,11 +201,11 @@ df_clean = df_raw \
     .withColumn("MENU_TYPE", trim(upper(col("MENU_TYPE")))) \
     .filter(col("COST_OF_GOODS_USD").isNotNull()) \
     .filter(col("SALE_PRICE_USD").isNotNull())
+```
 
-# -------------------------------------------------------------------------
-# Profit Calculations
-# -------------------------------------------------------------------------
+### Profit Calculations
 
+```python
 df_with_profit = df_clean \
     .withColumn(
         "PROFIT_USD",
@@ -195,11 +219,11 @@ df_with_profit = df_clean \
             2
         )
     )
+```
 
-# -------------------------------------------------------------------------
-# Categorization
-# -------------------------------------------------------------------------
+### Categorization
 
+```python
 df_categorized = df_with_profit \
     .withColumn(
         "PROFIT_TIER",
@@ -214,11 +238,11 @@ df_categorized = df_with_profit \
         .when(col("SALE_PRICE_USD") >= 5, "Mid-Range")
         .otherwise("Value")
     )
+```
 
-# -------------------------------------------------------------------------
-# Aggregation by Brand
-# -------------------------------------------------------------------------
+### Aggregation by Brand
 
+```python
 df_brand_summary = df_categorized.groupBy(
     "TRUCK_BRAND_NAME",
     "MENU_TYPE"
@@ -248,7 +272,10 @@ df_transformed.select(
 ).show(10, truncate=False)
 ```
 
-### Write Output
+<!-- ------------------------ -->
+## Write Output
+
+Write the transformed data to the Iceberg table and verify the results.
 
 ```python
 # =============================================================================
@@ -264,11 +291,24 @@ written_count = spark.read.table("menu_brand_summary").count()
 print(f"Rows written: {written_count:,}")
 ```
 
-### Cleanup & Summary
+<!-- ------------------------ -->
+## Iceberg Features
+
+Iceberg tables in Snowflake provide powerful features for data management:
+
+- **Time Travel:** Query historical data and view table snapshots using Snowpark Connect and SQL
+- **Versioning:** Work with Iceberg's snapshot management system to track changes over time
+- **Rollback:** Restore tables to previous versions when needed
+- **Schema Evolution:** Add, drop, and rename columns without downtime or data migration
+
+<!-- ------------------------ -->
+## Cleanup
+
+Release resources and optionally drop the objects created in this guide.
 
 ```python
 # =============================================================================
-# CLEANUP & SUMMARY
+# CLEANUP
 # =============================================================================
 
 # Unpersist cached DataFrames
@@ -283,16 +323,22 @@ df_transformed.unpersist()
 
 ### Best Practices
 
-**PERFORMANCE:**
 - Use COPY INTO for bulk loading (faster than spark.read for CSV)
-- Cache DataFrame for multiple operations
-- Avoid UDFs
+- Cache DataFrames when performing multiple operations
+- Avoid UDFs when possible — use built-in SQL functions instead
 
----
+<!-- ------------------------ -->
+## Conclusion And Resources
 
-## Section 4: Iceberg Features
+Congratulations! You've successfully created and queried Iceberg tables in Snowflake using Snowpark Connect.
 
-* Utilize Iceberg's time travel capabilities to query historical data and view table snapshots using Snowpark Connect and SQL
-* Understand and work with Iceberg's versioning and snapshot management system
-* Roll back tables to previous versions when needed using both approaches
-* Perform schema evolution operations including adding, dropping, and renaming columns without downtime in Snowpark Connect and SQL
+### What You Learned
+- How to configure external volumes for Iceberg storage
+- How to create Snowflake-managed Iceberg tables
+- How to load and transform data using Snowpark Connect
+- Key Iceberg features available in Snowflake
+
+### Related Resources
+- [Apache Iceberg Tables Documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg)
+- [Configure External Volume for S3](https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-external-volume-s3)
+- [Snowpark Connect Overview](https://docs.snowflake.com/en/developer-guide/snowpark-connect/snowpark-connect-overview)
