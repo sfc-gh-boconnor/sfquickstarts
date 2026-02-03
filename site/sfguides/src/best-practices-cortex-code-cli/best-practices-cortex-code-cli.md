@@ -55,7 +55,7 @@ curl -LsS https://ai.snowflake.com/static/cc-scripts/install.sh | sh
 * **Use caution with production** environments and destructive operations (DROP, DELETE, etc.)  
 * **Ask for explanations** if unsure: "Why are you doing this?" or "What will this change?"
 
-### Work Effectively {#work-effectively}
+### Work Effectively
 
 * **Start small and test frequently** - build one component at a time.  
 * **Use /plan for complex tasks** to see the full approach before starting  
@@ -105,7 +105,7 @@ Diagnose access issues and understand role privileges.
 Why am I getting a permissions error?
 ```
 
-### Generate Synthetic Data {#generate-synthetic-data}
+### Generate Synthetic Data
 
 Some examples below
 
@@ -139,7 +139,7 @@ unique. Create the data locally and then upload it to Snowflake.
 
 ### Perform basic queries against this data
 
-Basic example
+Ask anything! Here are some basic examples:
 
 ```
 Calculate the Churn Rate grouped by state and contract length. 
@@ -157,13 +157,16 @@ Create and deploy Streamlit apps with charts, filters, and interactivity.
 Open a good looking dashboard (e.g [dashboard here](https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/fc3a04485c66b47e6985c5bd5f0c4b28495a3456) as an example) and copy it to the clipboard. Paste it into Cortex Code (Ctrl + V). 
 
 ```
-Build an interactive Streamlit dashboard on this data with state filters and use the conversation so far for examples of the kinds of charts to show. Use the attached image as a template for visuals and branding.
+Build an interactive Streamlit dashboard on this data with state filters and 
+use the conversation so far for examples of the kinds of charts to show. 
+Use the attached image as a template for visuals and branding.
 ```
 
 Once you've verified that the dashboard is working and looks good, you can now upload it to Snowflake. 
 
 ``` 
-Ensure that the steamlit will work with Snowflake and upload it to Snowflake. Give me a link to access the dashboard when it's done.
+Ensure that the steamlit will work with Snowflake and upload it to Snowflake. 
+Give me a link to access the dashboard when it's done.
 ```
 
 Congratulations! You should now have a working Streamlit dashboard that displays the dataset you created!
@@ -179,48 +182,56 @@ In this process, we'll augment the existing synthetic data with some synthetic d
 Now let's create a semantic view so that you can use Cortex Analyst with this data. Try the prompt below and use the defaults for all the questions it asks. 
 
 ```
-Write a Semantic View named DEMO_TELECOM_CHURN_ANALYTICS for Cortex Analyst based on this data.  Use the semantic-view optimization skill
+Write a Semantic View named DEMO_TELECOM_CHURN_ANALYTICS for Cortex Analyst 
+based on this data.  Use the semantic-view optimization skill
 ```
 
 ### Create a Cortex Search service
 
-First we generate some synthetic data containing customer service calls 
+Step 1: Generate some synthetic data containing customer service calls 
 
 ```
-Generate a new table called customer_call_logs. Generate 50 realistic customer service transcripts (2-3 sentences each) as pdf files. Some should be angry complaints about coverage, others should be questions about billing. 
-
-Then use the AI_PARSE_DOCUMENT function to extract the text and layout information from the PDFs into the TRANSCRIPT_TEXT column. Split text into chunks for better search quality. 
+Generate a new table called customer_call_logs. Generate 50 realistic customer
+service transcripts (2-3 sentences each) as pdf files. Some should be angry
+complaints about coverage, others should be questions about billing. Then 
+use the AI_PARSE_DOCUMENT function to extract the text and layout information 
+from the PDFs into the TRANSCRIPT_TEXT column. Split text into chunks for better
+search quality. 
 ``` 
 
-Then let's create a cortex search service that indexes it
-
-```
-Create a Cortex Search Service named CALL_LOGS_SEARCH that indexes these transcripts. It should index the TRANSCRIPT_TEXT column and filter by CUSTOMER_ID.```
+Step 2: Create a Cortex Search service to index it: 
+``` Create a Cortex Search Service named CALL_LOGS_SEARCH that indexes these
+transcripts. It should index the TRANSCRIPT_TEXT column and filter by CUSTOMER_ID ```
 
 ### Create a Cortex Agent
 
-Finally, let's create a Cortex Agent that uses these two services and add it to Snowflake Intelligence
+Finally, let's create a Cortex Agent that uses these two services and add it to Snowflake Intelligence:
 
 ```
 Build a Cortex Agent that has access to two tools:
-1. cortex_analyst: For querying the TELECOM_CUSTOMERS SQL table.
-2. cortex_search: For searching the CALL_LOGS_SEARCH service.
-Write a system prompt for this agent.
-Persona: You are a Senior Retention Specialist.
-Routing Logic: If the user asks for 'metrics', 'counts', or 'averages', use the Analyst tool. If the user asks for 'sentiment', 'reasons', or 'summaries of calls', use the Search tool.
-Output Format: Always verify the customer ID before answering. If the risk score is high, end the response with a recommended retention offer (e.g., 'Offer 10% discount').
-Constraint: Never reveal the raw CHURN_RISK_SCORE to the user; interpret it as 'Low', 'Medium', or 'High'."
+cortex_analyst: For querying the TELECOM_CUSTOMERS SQL table.
+cortex_search: For searching the CALL_LOGS_SEARCH service. Write a system prompt for this agent. Persona: You are a Senior Retention Specialist.
+Routing Logic: If the user asks for 'metrics', 'counts', or 'averages', 
+use the Analyst tool. If the user asks for 'sentiment', 'reasons', or 
+'summaries of calls', use the Search tool.
+Output Format: Always verify the customer ID before answering. 
+If the risk score is high, end the response with a recommended retention offer 
+(e.g., 'Offer 10% discount').
+Constraint: Never reveal the raw CHURN_RISK_SCORE to the user; interpret it as
+'Low', 'Medium', or 'High'."
 ```
 
 ### Deploy to Snowflake Intelligence
 
 Finally, we can deploy the agent to [Snowflake Intelligence](https://ai.snowflake.com/)
 
-```Let's deploy this agent to Snowflake Intelligence```
+```
+Let's deploy this agent to Snowflake Intelligence
+```
 
-Congrats! You have successfully created and deployed a Snowflake Intelligence agent. 
+Ta-da! You have successfully created and deployed a Snowflake Intelligence agent. 
 
-Now you should be able to access this agent in Snowflake Intelligence and ask it questions like 
+Now you should be able to access this agent in Snowflake Intelligence and ask it questions like: 
 
 *What are customers complaining about in their calls?"* or *"Show me high-risk customers with monthly charges over $100"*
 
