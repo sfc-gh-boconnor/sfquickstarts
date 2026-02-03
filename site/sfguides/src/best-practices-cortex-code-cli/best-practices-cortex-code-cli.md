@@ -1,5 +1,5 @@
 author: Umesh Unnikrishnan, Shayak Sen 
-id: best-practices-cortex-code-cli 
+id: best-practices-cortex-code-cli
 language: en 
 summary: Learn best practices for using Cortex Code CLI, your AI-powered command-line coding agent for building, debugging, and deploying Snowflake applications.
 categories: snowflake-site:taxonomy/solution-center/ai-ml/quickstart
