@@ -11,7 +11,7 @@ feedback link: https://github.com/Snowflake-Labs/sfguides/issues
 
 # Introduction to Apache Iceberg™
 
-Welcome to this quickstart template for Apache Spark. In this guide, we'll cover:
+Welcome to this quickstart template for Apache Iceberg in Snowflake. In this guide, we'll cover:
 * Setting up your Snowpark environment for Iceberg table operations
 * Reading and writing to Snowflake-managed Iceberg tables
 
@@ -62,8 +62,6 @@ session.sql(f"USE SCHEMA {schema_name}").collect()
 ---
 
 ## Section 2: Creating an external volume
-
-Description of why its necessary to create an external volume
 
 ```python
 # ACCOUNTADMIN privileges required to create external volume
