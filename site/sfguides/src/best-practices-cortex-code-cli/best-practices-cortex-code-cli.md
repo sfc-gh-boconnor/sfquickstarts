@@ -213,7 +213,8 @@ Finally, let's create a Cortex Agent that uses these two services and add it to 
 ```
 Build a Cortex Agent that has access to two tools:
 cortex_analyst: For querying the TELECOM_CUSTOMERS SQL table.
-cortex_search: For searching the CALL_LOGS_SEARCH service. Write a system prompt for this agent. Persona: You are a Senior Retention Specialist.
+cortex_search: For searching the CALL_LOGS_SEARCH service. Write a system prompt for this agent. 
+Persona: You are a Senior Retention Specialist.
 Routing Logic: If the user asks for 'metrics', 'counts', or 'averages', 
 use the Analyst tool. If the user asks for 'sentiment', 'reasons', or 
 'summaries of calls', use the Search tool.
