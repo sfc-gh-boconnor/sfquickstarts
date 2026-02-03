@@ -12,19 +12,18 @@ This is your guide to Snowflake's **Cortex Code CLI**, an AI-powered command-lin
 
 ## Installation instructions
 
-``` 
-curl -LsS https://ai.snowflake.com/static/cc-scripts/install.sh | sh 
-```
-
 ### What You'll Need
 - Snowflake account with appropriate permissions
 - A supported environment: macOS on Apple Silicon, Intel Linux on Intel, or Windows Subsystem for Linux (WSL)
 - Terminal access
 
+``` 
+curl -LsS https://ai.snowflake.com/static/cc-scripts/install.sh | sh 
+```
+
 > **If you're not yet a Snowflake customer** [start your 30-day trial here](https://signup.snowflake.com/cortex-code). 
 
 ### What You'll Learn
-- Installation requirements
 - Key terminology
 - 101 use cases (e.g. writing or querying using natural language, creating synthetic datasets and building interactive dashboards.)
 - 201 use cases (e.g. building semantic views, Cortex Search services, or Cortex Agents)
@@ -87,15 +86,18 @@ $ cortex
 
 Search your data catalog, understand lineage, and find relevant tables.
 
-``` Find all tables related to customers that I have write access to ```
+``` 
+Find all tables related to customers that I have write access to ```
 
 ### Ensure you have the right role with the correct permissions
 
-``` What privileges does my role have on this database?```
+``` 
+What privileges does my role have on this database?```
 
 Diagnose access issues and understand role privileges.
 
-``` Why am I getting a permissions error?```
+``` 
+Why am I getting a permissions error?```
 
 ### Generate Synthetic Data {#generate-synthetic-data}
 
@@ -103,23 +105,28 @@ Some examples below
 
 **Fraud analysis for a fintech company**
 
-```Generate realistic looking synthetic data into <database name>. Create a table of 10000 financial transactions where ~0.5% of them are fraudulent. Include Amount, Location, Merchant, and Time. Make the fraudulent ones look suspicious based on location or amount.```
+``` 
+Generate realistic looking synthetic data into <database name>. Create a table of 10000 financial transactions where ~0.5% of them are fraudulent. Include Amount, Location, Merchant, and Time. Make the fraudulent ones look suspicious based on location or amount.```
 
 **Pharma trial data**
 
-```Make a dummy dataset for a clinical trial of a new blood pressure medication. List 100 patients, their age, their dosage group (Placebo vs. 10mg), and their blood pressure readings over 4 weeks.```
+``` 
+Make a dummy dataset for a clinical trial of a new blood pressure medication. List 100 patients, their age, their dosage group (Placebo vs. 10mg), and their blood pressure readings over 4 weeks.```
 
 **Customer churn data**
 
-```Create a customer churn dataset for a telecom company showing customer usage for 100000 customers. Include basic demographic data such as fake names, phone numbers, US city and state. Also include data usage (GB), call minutes, contract length, and whether they cancelled their service (churn). Ensure there's a customer_id column that's unique. Create the data locally and then upload it to Snowflake.```
+```
+Create a customer churn dataset for a telecom company showing customer usage for 100000 customers. Include basic demographic data such as fake names, phone numbers, US city and state. Also include data usage (GB), call minutes, contract length, and whether they cancelled their service (churn). Ensure there's a customer_id column that's unique. Create the data locally and then upload it to Snowflake.```
 
 ### Perform basic queries against this data
 
 Basic example
 
-```Calculate the Churn Rate grouped by state and contract length. Order the results by the highest churn rate first so I can see the most risky regions and contract types ```
+```
+Calculate the Churn Rate grouped by state and contract length. Order the results by the highest churn rate first so I can see the most risky regions and contract types ```
 
-``` I want to identify the heaviest data users who are also churning. ```
+```
+I want to identify the heaviest data users who are also churning. ```
 
 ### Build Interactive Dashboards
 
