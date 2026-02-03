@@ -40,7 +40,7 @@ This quickstart deploys a demo application that simulates vehicle routing scenar
 
 **Required:**
 - OpenRouteService Native App deployed and activated
-- Cortex Code CLI installed and configured
+- [Cortex Code CLI](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-cli) installed and configured
 - Active Snowflake connection with ACCOUNTADMIN access
 
 ### What You'll Learn 

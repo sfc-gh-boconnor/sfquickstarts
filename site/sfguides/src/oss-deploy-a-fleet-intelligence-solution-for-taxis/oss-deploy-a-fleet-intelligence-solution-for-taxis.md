@@ -41,7 +41,7 @@ This quickstart deploys a multi-page Streamlit application that simulates a taxi
 
 **Required:**
 - OpenRouteService Native App deployed and activated
-- Cortex Code CLI installed and configured
+- [Cortex Code CLI](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-cli) installed and configured
 - Active Snowflake connection with ACCOUNTADMIN access
 - Overture Maps Places and Addresses datasets from Snowflake Marketplace
 

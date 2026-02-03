@@ -46,8 +46,6 @@ This solution installs an [Open Route Service](https://openrouteservice.org/) Na
 
 ### Prerequisites
 
-> **_NOTE:_** Cortex Code is currently in **Private Preview**. Contact your Snowflake account team for access.
-
 **This is what you will need**:
 
 -   **ACCOUNTADMIN** access to your Snowflake account
@@ -58,12 +56,8 @@ This solution installs an [Open Route Service](https://openrouteservice.org/) Na
 
 -   [External Access Integration Activated](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) - Required to download map files from provider account
 
--   **Cortex Code CLI** installed and configured
-    - Installation: Once you have access, install via the provided instructions
-    - Add to your PATH: `export PATH="$HOME/.local/bin:$PATH"` (add to `~/.zshrc` or `~/.bashrc`)
+-   **[Cortex Code CLI](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-cli)** installed and configured
     - Verify: `cortex --version`
-
-> **_TODO:_** 📝 This section requires update once the official Cortex Code installation method is publicly available. The current instructions are for Private Preview access only.
 
 -   **Container Runtime** - One of the following:
     - [Podman](https://podman.io/) (recommended): `brew install podman` (macOS) 
