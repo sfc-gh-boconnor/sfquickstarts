@@ -8,7 +8,9 @@ status: Published
 
 # Best Practices for Cortex Code CLI
 
-This is your guide to Snowflake's **Cortex Code CLI**, an AI-powered command-line coding agent designed to streamline the process of building, debugging, and deploying Snowflake applications through natural language conversations.  
+This is your guide to Snowflake's [**Cortex Code CLI**](http://docs.snowflake.com/user-guide/cortex-code/cortex-code-cli), an AI-powered command-line coding agent designed to streamline the process of building, debugging, and deploying Snowflake applications through natural language conversations.  
+
+<img src="cortex-code-cli.png">
 
 ## Installation instructions
 
@@ -25,6 +27,7 @@ curl -LsS https://ai.snowflake.com/static/cc-scripts/install.sh | sh
 
 ### What You'll Learn
 - Key terminology
+- Best practices when using Cortex Code CLI
 - 101 use cases (e.g. writing or querying using natural language, creating synthetic datasets and building interactive dashboards.)
 - 201 use cases (e.g. building semantic views, Cortex Search services, or Cortex Agents)
 
@@ -87,17 +90,20 @@ $ cortex
 Search your data catalog, understand lineage, and find relevant tables.
 
 ``` 
-Find all tables related to customers that I have write access to ```
+Find all tables related to customers that I have write access to 
+```
 
 ### Ensure you have the right role with the correct permissions
 
 ``` 
-What privileges does my role have on this database?```
+What privileges does my role have on this database?
+```
 
 Diagnose access issues and understand role privileges.
 
 ``` 
-Why am I getting a permissions error?```
+Why am I getting a permissions error?
+```
 
 ### Generate Synthetic Data {#generate-synthetic-data}
 
@@ -106,27 +112,32 @@ Some examples below
 **Fraud analysis for a fintech company**
 
 ``` 
-Generate realistic looking synthetic data into <database name>. Create a table of 10000 financial transactions where ~0.5% of them are fraudulent. Include Amount, Location, Merchant, and Time. Make the fraudulent ones look suspicious based on location or amount.```
+Generate realistic looking synthetic data into <database name>. Create a table of 10000 financial transactions where ~0.5% of them are fraudulent. Include Amount, Location, Merchant, and Time. Make the fraudulent ones look suspicious based on location or amount.
+```
 
 **Pharma trial data**
 
 ``` 
-Make a dummy dataset for a clinical trial of a new blood pressure medication. List 100 patients, their age, their dosage group (Placebo vs. 10mg), and their blood pressure readings over 4 weeks.```
+Make a dummy dataset for a clinical trial of a new blood pressure medication. List 100 patients, their age, their dosage group (Placebo vs. 10mg), and their blood pressure readings over 4 weeks.
+```
 
 **Customer churn data**
 
 ```
-Create a customer churn dataset for a telecom company showing customer usage for 100000 customers. Include basic demographic data such as fake names, phone numbers, US city and state. Also include data usage (GB), call minutes, contract length, and whether they cancelled their service (churn). Ensure there's a customer_id column that's unique. Create the data locally and then upload it to Snowflake.```
+Create a customer churn dataset for a telecom company showing customer usage for 100000 customers. Include basic demographic data such as fake names, phone numbers, US city and state. Also include data usage (GB), call minutes, contract length, and whether they cancelled their service (churn). Ensure there's a customer_id column that's unique. Create the data locally and then upload it to Snowflake.
+```
 
 ### Perform basic queries against this data
 
 Basic example
 
 ```
-Calculate the Churn Rate grouped by state and contract length. Order the results by the highest churn rate first so I can see the most risky regions and contract types ```
+Calculate the Churn Rate grouped by state and contract length. Order the results by the highest churn rate first so I can see the most risky regions and contract types.
+```
 
 ```
-I want to identify the heaviest data users who are also churning. ```
+I want to identify the heaviest data users who are also churning.
+```
 
 ### Build Interactive Dashboards
 
@@ -134,11 +145,15 @@ Create and deploy Streamlit apps with charts, filters, and interactivity.
 
 Open a good looking dashboard (e.g [dashboard here](https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/fc3a04485c66b47e6985c5bd5f0c4b28495a3456) as an example) and copy it to the clipboard. Paste it into Cortex Code (Ctrl + V). 
 
-``` Build an interactive Streamlit dashboard on this data with state filters and use the conversation so far for examples of the kinds of charts to show. Use the attached image as a template for visuals and branding.```
+```
+Build an interactive Streamlit dashboard on this data with state filters and use the conversation so far for examples of the kinds of charts to show. Use the attached image as a template for visuals and branding.
+```
 
 Once you've verified that the dashboard is working and looks good, you can now upload it to Snowflake. 
 
-```Ensure that the steamlit will work with Snowflake and upload it to Snowflake. Give me a link to access the dashboard when it's done.```
+``` 
+Ensure that the steamlit will work with Snowflake and upload it to Snowflake. Give me a link to access the dashboard when it's done.
+```
 
 Congratulations! You should now have a working Streamlit dashboard that displays the dataset you created!
 
