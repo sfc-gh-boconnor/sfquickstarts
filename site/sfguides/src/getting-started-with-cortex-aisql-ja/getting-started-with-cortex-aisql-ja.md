@@ -9,7 +9,7 @@ authors: Sho Tanaka, Dash Desai
 
 
 
-# はじめての Cortex AI 関数（日本語版）
+# はじめての Cortex AI 関数
 <!-- ------------------------ -->
 
 ## 概要
