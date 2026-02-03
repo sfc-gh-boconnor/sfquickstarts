@@ -76,7 +76,8 @@ Here we'll create a basic synthetic dataset and do some basic analysis to genera
 
 ### Connect to a Snowflake account
 
-``` $ cortex -c <your demo account> 
+```
+$ cortex -c <your demo account> 
 or 
 $ cortex 
 > connect to <my demo account> 
@@ -86,15 +87,15 @@ $ cortex
 
 Search your data catalog, understand lineage, and find relevant tables.
 
-```Find all tables related to customers that I have write access to ```
+``` Find all tables related to customers that I have write access to ```
 
 ### Ensure you have the right role with the correct permissions
 
-```What privileges does my role have on this database?```
+``` What privileges does my role have on this database?```
 
 Diagnose access issues and understand role privileges.
 
-```Why am I getting a permissions error?```
+``` Why am I getting a permissions error?```
 
 ### Generate Synthetic Data {#generate-synthetic-data}
 
